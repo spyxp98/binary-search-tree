@@ -17,12 +17,12 @@ class Node:
         node.parent = self
 
 # Implementation of in-order, pre-order and post-order traversals:
-def print_in_order(root, res):
+def print_in_order(root):
     if root == None:
         return 
-    print_in_order(root.left, res)
-    res.append(root.value)
-    print_in_order(root.right, res)
+    print_in_order(root.left)
+    print(root.value, end = ' ')
+    print_in_order(root.right)
 
 def print_pre_order(root):
     if root == None:
@@ -112,12 +112,12 @@ def tree_preprocessing():
             root = node
     return root
 
-def main_1():
+# Check in-order printing
+def main_1(): 
     root = tree_preprocessing()
-    res = []
-    print_in_order(root, res)
-    print(res)
-    
+    print_in_order(root)
+
+# Check if a tree is BST (with same keys, not AVL)    
 def main_2():
     root = tree_preprocessing()
     if check_if_bst(root):
